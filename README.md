@@ -1,28 +1,37 @@
-<h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="AniGenie_0"></a>AniGenie</h1>
-<blockquote>
-<p class="has-line-data" data-line-start="1" data-line-end="2">an anime suggestion bot based on user data</p>
-</blockquote>
-<h2 class="code-line" data-line-start=4 data-line-end=5 ><a id="How_to__4"></a>How to -</h2>
-<ul>
-<li class="has-line-data" data-line-start="5" data-line-end="7">
-<p class="has-line-data" data-line-start="5" data-line-end="6">use <a href="http://ani.py">ani.py</a> or use apis like jinkan to gather anime data into anime.csv</p>
-</li>
-<li class="has-line-data" data-line-start="7" data-line-end="9">
-<p class="has-line-data" data-line-start="7" data-line-end="8">structure of anime.csv - “No”,“Anime_name”,“Genres”,“Characters”,“Ratings”,“Episodes”</p>
-</li>
-<li class="has-line-data" data-line-start="9" data-line-end="11">
-<p class="has-line-data" data-line-start="9" data-line-end="10">run <a href="http://main.py">main.py</a> to embed the csv data into anime_embeddings.pkl and anime_index.bin</p>
-</li>
-<li class="has-line-data" data-line-start="11" data-line-end="13">
-<p class="has-line-data" data-line-start="11" data-line-end="12">load_data() to be used only when there is a change in the anime.csv</p>
-</li>
-<li class="has-line-data" data-line-start="13" data-line-end="15">
-<p class="has-line-data" data-line-start="13" data-line-end="14">configure the user data</p>
-</li>
-<li class="has-line-data" data-line-start="15" data-line-end="17">
-<p class="has-line-data" data-line-start="15" data-line-end="16">run the get_recommendation()</p>
-</li>
-</ul>
-<blockquote>
-<p class="has-line-data" data-line-start="17" data-line-end="18">and you got the recommendations based on your preferences</p>
-</blockquote>
+﻿# AniGenie 
+
+AniGenie is a lightweight anime recommender that suggests titles based on your watch history using semantic embeddings and fast similarity search.
+
+## Why?
+
+Too many choices. AniGenie filters anime by matching metadata (title, genres, characters,summary, ratings ) to user preferences for quick, relevant suggestions.
+
+##nHow?
+
+- Collect anime data via `ani.py` or APIs (e.g. Jikan).
+- Encode metadata with SentenceTransformers.
+- Use FAISS for nearest-neighbor search.
+- Rank by hybrid score: 70% semantic similarity + 30% ratings.
+
+## Tech stack
+
+- Python 3.x
+- SentenceTransformers (`all-mpnet-base-v2`)
+- FAISS, pandas, NumPy
+- BeautifulSoup4 (optional scraping)
+
+### Example output
+
+```
+Recommendations for user 1:
+- Fullmetal Alchemist: Brotherhood (Similarity: 0.85, Rating: 9.1)
+- Steins;Gate (Similarity: 0.78, Rating: 9.1)
+- Death Note (Similarity: 0.74, Rating: 8.6)
+```
+
+## Contributing
+
+PRs welcome: add data sources, tune scoring, or build a web UI.
+
+---
+
