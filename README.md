@@ -6,7 +6,7 @@ AniGenie is a lightweight anime recommender that suggests titles based on your w
 
 Too many choices. AniGenie filters anime by matching metadata (title, genres, characters,summary, ratings ) to user preferences for quick, relevant suggestions.
 
-##nHow?
+## How?
 
 - Collect anime data via `ani.py` or APIs (e.g. Jikan).
 - Encode metadata with SentenceTransformers.
